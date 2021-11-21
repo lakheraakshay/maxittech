@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "Quink Post",
+    "slug": "native-finalquinkpost",
+    "version": "29.0.0",
+    "description": "Content Creation Platform",
+    "orientation": "portrait",
+    "icon": "./assets/iconqp.png",
+    "splash": {
+      "image": "./assets/mainimage.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "packagerOpts": {
+      "assetExts": ["html", "js", "map"]
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/iconqp.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "versionCode": 29,
+      "package": "com.quinkpost.quinkpost",
+      "config" : {
+        "googleMobileAdsAppId" : "ca-app-pub-8495080377148498~3711949806"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
