@@ -17,13 +17,13 @@ import Messages from "../components/Messages";
 import axios from "axios";
 import BACKEND from "../constants/BACKEND";
 import { StatusBar } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage"
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Dimensions } from "react-native";
 
-const {width, height} = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 
 const MessageScreen = (props) => {
-  const [globalState, setglobalState] = useState()
+  const [globalState, setglobalState] = useState();
   // useEffect(()=>{ (async()=>{
   //   const usre=await AsyncStorage.getItem("quinkUser")
   //   setglobalState(JSON.parse(usre))
@@ -39,18 +39,20 @@ const MessageScreen = (props) => {
   useEffect(function () {
     {
       (async () => {
-
         try {
-          const usre = await AsyncStorage.getItem("quinkUser")
-          setglobalState(JSON.parse(usre))
-          const parsedUser = JSON.parse(usre)
+          const usre = await AsyncStorage.getItem("quinkUser");
+          setglobalState(JSON.parse(usre));
+          const parsedUser = JSON.parse(usre);
           const result = await axios.post(
             `${BACKEND}/personalChat/getPartner`,
+            // `${BACKEND}/user/all`,
             {
               userId: parsedUser._id,
             }
           );
+          // const result = await axios.get(`${BACKEND}/user/all`);
           console.log(result.data, "this is**************************");
+          // setData(result.data.users);
           setData(result.data.userChats);
           setLoading(false);
         } catch (e) {
@@ -90,7 +92,6 @@ const MessageScreen = (props) => {
         /* console.log(partner.user1.userName) */
       }
       return { avatar: partner.user1.avatar, userName: partner.user1.userName };
-
     }
   };
 
@@ -101,7 +102,7 @@ const MessageScreen = (props) => {
       colors={["#f7f7f7", "#a8c0ff", "#667db6"]}
       style={styles.gradient}
     >
-      <StatusBar backgroundColor={'#f7f7f7'} barStyle='light-content' />
+      <StatusBar backgroundColor={"#f7f7f7"} barStyle="light-content" />
       <View style={styles.headerContainer}>
         <Text style={styles.header}>Share Content</Text>
         <TouchableOpacity
@@ -120,16 +121,15 @@ const MessageScreen = (props) => {
         ) : (
           <Animated.View style={[pan.getLayout(), styles.card]}>
             {(() => {
-              return data.map((partner) => {
+              return data?.map((partner) => {
                 {
                   /* console.log(partner.user2.userName) */
                 }
                 return (
                   <ProfileMessage
                     // key=item._id
-                    userName={() => {
-                      userName();
-                    }}
+                    // userName=
+                    userName={partner.userName}
                     uri={partner?.user2?.avatar}
                   />
                 );
@@ -154,15 +154,24 @@ const MessageScreen = (props) => {
                 return data.map((partner) => {
                   // console.log(partner.user1.userName, partner.user2.userName);
 
-
                   return (
                     <Messages
                       key={partner._id}
                       username={userName(partner).userName}
+                      // username={partner.userName}
                       uri={userName(partner).avatar}
+                      uri=""
                       count={Math.floor(Math.random() * 3)}
+                      s
                       onPress={() => {
                         props.navigation.navigate("MessageDetailScreen", {
+                          // user1: globalState._id,
+                          // user2: partner._id,
+                          // chatId: null,
+                          // useravatar: partner.avatar,
+                          // // userName: userName(partner).userName,
+                          // userName: "devansh",
+
                           user1: globalState._id,
                           user2: partner.user2._id,
                           chatId: partner._id,
@@ -215,7 +224,7 @@ const styles = StyleSheet.create({
   proContainer: {
     marginRight: -20,
     alignSelf: "center",
-    marginTop: 10
+    marginTop: 10,
   },
   ops: {
     borderTopLeftRadius: 40,

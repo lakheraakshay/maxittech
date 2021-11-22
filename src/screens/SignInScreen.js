@@ -162,7 +162,9 @@ const SignIn = ({ navigation }) => {
     console.log("called>>>>>>", userName, password);
     console.log("called");
     try {
+      // Alert.alert("Wrong Input!");
       const result = await axios.post(`${BACKEND}/user/login`, {
+        // const result = await axios.post(`http://localhost:5000/user/login`, {
         userName,
         password,
       });
@@ -321,7 +323,7 @@ const SignIn = ({ navigation }) => {
                   },
                 ]}
               >
-                Sign In
+                Sign In 2
               </Text>
             </LinearGradient>
           </TouchableOpacity>
@@ -449,7 +451,7 @@ const SignIn = ({ navigation }) => {
               justifyContent: "center",
               alignSelf: "center",
               borderRadius: 10,
-              paddingHorizontal: 40  
+              paddingHorizontal: 40,
             }}
           >
             <Text
@@ -460,7 +462,7 @@ const SignIn = ({ navigation }) => {
                 },
               ]}
             >
-              Sign In
+              Sign In 3
             </Text>
           </TouchableOpacity>
         </View>

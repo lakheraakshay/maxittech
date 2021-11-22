@@ -115,11 +115,11 @@ const MessageDetailScreen = (props) => {
                         message={message?.message}
                         timeStamp={message?.timeStamp}
                       />
-                      <Received
+                      {/* <Received
                         image={data?.useravatar}
                         message={'I am good'}
                         timeStamp={message.timeStamp}
-                      />
+                      /> */}
                       </>
                     );
                   } else {

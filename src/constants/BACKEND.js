@@ -1,8 +1,10 @@
 // const BACKEND = "https://quinkpostbackend.herokuapp.com"
 
 // const BACKEND = "http://65.0.170.244:5000"
-// const BACKEND = "http://192.168.1.140:5000"
-// 
-const BACKEND = "https://locallang.ml";
+// const BACKEND = "http://192.168.120.136:5000";
+const BACKEND = "http://192.168.120.136:5000";
 
-export default BACKEND
+//
+// const BACKEND = "http://localhost:5000";
+
+export default BACKEND;

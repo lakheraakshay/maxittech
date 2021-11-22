@@ -111,7 +111,7 @@ const SignUpScreen = ({ navigation }) => {
         // navigation.navigate("BottomTab", { screen: "HomeScreen" });
       }
     } catch (e) {
-      Alert.alert("check userName/password error while signing up");
+      Alert.alert(e);
       console.log(e, "error while sign up");
     }
   };
